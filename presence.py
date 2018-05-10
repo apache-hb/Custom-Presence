@@ -92,9 +92,7 @@ if wizard:
             'name': input('new name'),
             'id': input('input client id'),
             'states': [
-                {
 
-                }
             ]
         }
 
@@ -128,8 +126,6 @@ for key, value in default[index]['states'][subindex].items():
         value = None
         print(key, value)
 
-
-
 print(client.update(
     state=default[index]['states'][subindex].get('state'),
     details=default[index]['states'][subindex].get('details'),
@@ -139,6 +135,7 @@ print(client.update(
     large_text=default[index]['states'][subindex].get('large_text'),
     start=int(time())
 ))
-print('opened a window, just minimize it')
+
+print('\n\ni just opened a window, just minimize it\nbut do not close it\nif you want to change presence just press ctrl+c in terminal and restart the program')
 
 window.mainloop()
