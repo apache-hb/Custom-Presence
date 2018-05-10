@@ -102,3 +102,4 @@ ENV/
 
 # stop config 
 .json
+*.json
