@@ -99,10 +99,6 @@ if wizard:
     else:
         print('either input game or state')
 
-window = tkinter.Tk()
-window.title('Don\'t close me')
-window.geometry('300x20')
-
 b = -1
 for a in default:
     b += 1
@@ -135,6 +131,14 @@ print(client.update(
     large_text=default[index]['states'][subindex].get('large_text'),
     start=int(time())
 ))
+
+window = tkinter.Tk()
+window.title('Don\'t close me')
+window.geometry('300x20')
+
+text = tkinter.Text(window)
+text.pack()
+text.insert(tkinter.END, 'Currently playing {}'.format(default[index]['name']))
 
 print('\n\ni just opened a window, just minimize it\nbut do not close it\nif you want to change presence just press ctrl+c in terminal and restart the program')
 
