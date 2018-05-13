@@ -98,29 +98,24 @@ if wizard:
 
     else:
         print('either input game or state')
+        exit(5)
 
 b = -1
 for a in default:
     b += 1
-    print(a['name'], b)
+    print(b, '-', a['name'])
 
 index = int(input('select index for game\n'))
 
 d = -1
 for c in default[index]['states']:
     d += 1
-    print(c['name'], d)
+    print(d, '-', c['name'])
 
 subindex = int(input('select which state to use\n'))
 
 client = Presence(default[index]['id'])
 client.connect()
-
-for key, value in default[index]['states'][subindex].items():
-    if value == '':
-        print(key, value)
-        value = None
-        print(key, value)
 
 print(client.update(
     state=default[index]['states'][subindex].get('state'),
@@ -133,12 +128,8 @@ print(client.update(
 ))
 
 window = tkinter.Tk()
-window.title('Don\'t close me')
+window.title(default[index]['name'])
 window.geometry('300x20')
-
-text = tkinter.Text(window)
-text.pack()
-text.insert(tkinter.END, 'Currently playing {}'.format(default[index]['name']))
 
 print('\n\ni just opened a window, just minimize it\nbut do not close it\nif you want to change presence just press ctrl+c in terminal and restart the program')
 
